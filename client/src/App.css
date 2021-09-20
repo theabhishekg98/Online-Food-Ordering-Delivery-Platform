@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginForm input {
+  width: 350px;
+  height: 25px;
+  margin: 10px;
+  font-size: 20px;
+}
+/* 
+.loginForm submit {
+  justify-content: center;
+  width: 30px;
+  height: 20px;
+} */
