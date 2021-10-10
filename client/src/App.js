@@ -1,78 +1,37 @@
-import React, {useState, useEffect} from 'react';
-import './App.css';
-import axios from 'axios';
-
+import React from 'react';
+import { Route } from 'react-router-dom'
+import Login from './components/SignUp/Login'
+import CustomerRegistration from './components/SignUp/CustomerRegistration';
+import RestaurantRegistration from './components/SignUp/RestaurantRegistration'
+import RestaurantDashBoard from './components/DashBoard/RestaurantDashBoard';
+import AddDish from './components/DashBoard/AddDish';
+import RestaurantProfile from './components/Profile/RestaurantProfile';
+import RestaurantLogin from './components/SignUp/RestaurantLogin';
+import CustomerDashBoard from './components/DashBoard/CustomerDashBoard';
+import CustomerProfile from './components/Profile/CustomerProfile';
+import CustomerRestaurantView from './components/DashBoard/CustomerRestaurantView';
+import CustomerPersonalization from './components/DashBoard/CustomerPersonalization';
+import CustomerCheckOut from './components/DashBoard/CustomerCheckOut';
+import  CustomerOrders from './components/DashBoard/CustomerOrders';
 
 function App() {
-  const [emailReg, setEmailReg] = useState('');
-  const [passwordReg, setPasswordReg] = useState('');
-
-  const [emailLogin, setEmailLogin] = useState('');
-  const [passwordLogin, setPasswordLogin] = useState('');
-
-  const [loginStatus, setLoginStatus] = useState('');
-
-  useEffect(() => {
-    axios.get('http://localhost:8000/getCredentials')
-    .then((response) => {
-      console.log(response);
-    });
-  }, []);
-
-  const Register = () => {
-    axios.post('http://localhost:8000/register', {
-      email: emailReg,
-      password: passwordReg
-    }).then((response) => {
-      // alert("Added user credentials successfully!");
-      console.log(response);
-    });
-  };
-
-  const Login = () => {
-    axios.post('http://localhost:8000/login', {
-      email: emailLogin,
-      password: passwordLogin
-    }).then((response) => {
-      // alert("User credentials authenticated successfully!");
-      if(response.data.message) {
-        setLoginStatus(response.data.message);
-      } else {
-        setLoginStatus("Login Successful!");
-      }
-      console.log(response);
-    });
-  };
-
-  return ( 
-    <div className="App">
-      <h1>Login</h1>
-      <div className="loginForm">
-        <label>Email:</label>
-        <input type="email" name="email" onChange={(e) => {
-          setEmailLogin(e.target.value)
-        }}></input>
-        <label>Password:</label>
-        <input type="password" name="password" onChange={(e) => {
-          setPasswordLogin(e.target.value)
-        }}></input>
-        <button name="submit" onClick={Login}>Login</button> 
-      </div>
-       
-      <h1>Register</h1>
-      <div className="loginForm">
-        <label>Email:</label>
-        <input type="email" name="email" onChange={(e) => {
-          setEmailReg(e.target.value)
-        }}></input>
-        <label>Password:</label>
-        <input type="password" name="password" onChange={(e) => {
-          setPasswordReg(e.target.value)
-        }}></input>
-        <button name="submit" onClick={Register}>Register</button> 
-      </div>
-
-      <h1>{loginStatus}</h1>
+  console.info('started');
+  return (
+    <div>
+      <Route exact path='/' component={Login} />
+      <Route exact path='/restaurant/login' component={RestaurantLogin} />
+      <Route exact path='/customer/register' component={CustomerRegistration} />
+      <Route exact path='/restaurant/register' component={RestaurantRegistration} />
+      <Route exact path='/restaurant/dashBoard' component={RestaurantDashBoard} />
+      <Route exact path='/restaurant/dishes' component={AddDish} />
+      <Route exact path='/restaurant/profile' component={RestaurantProfile} />
+      <Route exact path='/customer/dashBoard' component={CustomerDashBoard} />
+      <Route exact path='/customer/orders' component={CustomerOrders} />
+      <Route exact path='/restaurant/orders' component={CustomerOrders} />
+      <Route exact path='/customer/profile' component={CustomerProfile} />
+      <Route exact path='/customer/restaurant' component={CustomerRestaurantView} />
+      <Route exact path='/customer/favorite' component={CustomerPersonalization} />
+      <Route exact path='/customer/checkout' component={CustomerCheckOut} />
     </div>
   );
 }
