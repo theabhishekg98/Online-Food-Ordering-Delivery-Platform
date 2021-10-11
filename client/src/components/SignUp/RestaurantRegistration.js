@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import LockIcon from '@mui/icons-material/Lock';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import bgImage from '../../images/Login/Uber-Eats-Register.jpeg'
+import bgImage from '../../images/foodImages/food2.jpeg'
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import backendServer from '../../Config';

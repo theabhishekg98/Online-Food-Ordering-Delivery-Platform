@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import LockIcon from '@mui/icons-material/Lock';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import bgImage from '../../images/Login/Uber-Eats-Register.jpeg'
+import bgImage from '../../images/foodImages/food3.jpeg'
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import backendServer from '../../Config';
@@ -68,7 +68,7 @@ export default function CustomerRegistration() {
               <LockIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Customer Registration
+            Customer Registration
             </Typography>
             <Box component="form" noValidate onSubmit={onRegister} sx={{ mt: 1 }}>
             <TextField
@@ -86,6 +86,7 @@ export default function CustomerRegistration() {
                 required
                 fullWidth
                 id="email"
+                type="email"
                 label="Email Address"
                 name="email"
                 autoComplete="email"

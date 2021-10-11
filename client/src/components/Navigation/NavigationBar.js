@@ -48,7 +48,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import axios from "axios";
 import backendServer from "../../Config";
-import { color } from "@mui/system";
 
 const useStyles = makeStyles({
   list: {
@@ -140,24 +139,32 @@ export default function NavigationBar(props) {
   const [newRestaurant, setNewRestaurant] = useState("");
   const [searchString, setSearchString] = useState("");
   const [searchBy, setSearchBy] = useState("Restaurant");
-  const [orderOption, setOrderOption] = useState("Delivery");
+  const [orderOption, setOrderOption] = useState("delivery");
   const [restaurantMode, setRestaurantMode] = useState("");
   const [deliveryModes, setDeliveryModes] = useState([]);
 
   useEffect(async () => {
     let currentCart = JSON.parse(sessionStorage.getItem("currentCart")) || [];
     setCart(currentCart);
-    let restaurantMode = sessionStorage.getItem("mode");
-    if (restaurantMode == "Pick-up") {
-      setDeliveryModes(["Pick-up"]);
-    } else if (restaurantMode == "Delivery") {
-      setDeliveryModes(["Delivery"]);
-    } else {
-      setDeliveryModes(["Delivery", "Pick-up"]);
-    }
     if (props.view === "customerrestaurant") setSearchBy("Dishes");
   }, []);
 
+  useEffect(() => {
+    const cart = JSON.parse(sessionStorage.getItem("currentCart"));
+    const restaurantId = cart && cart.length && cart[0].RestaurantId;
+    axios.get(`${backendServer}/restaurant/mode/${restaurantId}`).then(({ data }) => {
+      console.log("data", data);
+      if (data.deliver && data.pickup) {
+        setDeliveryModes(["pickup", "deliver"]);
+      } else if (data.deliver) {
+        setDeliveryModes(["deliver"]);
+      } else {
+        setDeliveryModes(["pickup"]);
+      }
+    });
+  }, [openCart]);
+
+  console.log("deliveryModes", deliveryModes);
   const persistCartOnSession = (cart) => {
     sessionStorage.setItem("checkoutCart", JSON.stringify(cart));
   };
@@ -461,7 +468,7 @@ export default function NavigationBar(props) {
       <div className={classes.root}>
         <Box sx={{ flexGrow: 1 }}>
           <AppBar style={style} position="static">
-            <Toolbar
+          <Toolbar
               style={{ display: "flex", width: "100%", background: "#90ee90" }}
             >
               <IconButton
@@ -554,14 +561,14 @@ export default function NavigationBar(props) {
                   "/customer/register",
                   "/",
                 ].includes(window.location.pathname) && (
-                  <IconButton
-                    onClick={() => {
-                      onLogout();
-                    }}
-                    aria-label="Log out"
-                  >
-                    <LogoutIcon />
-                  </IconButton>
+                <IconButton
+                  onClick={() => {
+                    onLogout();
+                  }}
+                  aria-label="Log out"
+                >
+                  <LogoutIcon />
+                </IconButton>
                 )}
               </Box>
             </Toolbar>
@@ -615,9 +622,8 @@ export default function NavigationBar(props) {
                   fullWidth
                   name="mode"
                   value={orderOption}
-                  style={{ width: "25%" }}
+                  style={{ width: "50%" }}
                   onChange={(e) => setOrderOption(e.target.value)}
-                  autoComplete="delivery"
                   defaultValue="pickup"
                   select
                 >

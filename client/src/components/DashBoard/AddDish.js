@@ -50,6 +50,7 @@ export default function AddDish() {
             url = response.data.imageUrl;
             setImageUrl(url);
         }
+
         const restaurantId = sessionStorage.getItem('userId');
         const dishId = sessionStorage.getItem('dishId');
         let payload = {
@@ -62,6 +63,7 @@ export default function AddDish() {
             type: data.get('type'),
             imageUrl: url
         }
+
         axios.post(`${backendServer}/restaurant/dishes`, payload)
             .then(response => {
                 history.push("/restaurant/dashBoard")
@@ -69,16 +71,20 @@ export default function AddDish() {
             .catch(err => {
                 console.log("Error");
             });
+
     };
+
     useEffect(async () => {
         const dishId = sessionStorage.getItem('dishId');
         console.log(disabled);
+
         const action = sessionStorage.getItem("action");
         if (action == 'view') {
             setDisbled(true);
         } else {
             setDisbled(false);
         }
+
         if (dishId) {
             const response = await axios.get(`${backendServer}/dishes/${dishId}`);
             const dish = response.data;
@@ -108,9 +114,11 @@ export default function AddDish() {
         "margin-left": '45%'
     }
 
+
     return (
         <>
             <NavigationBar type="restaurant" />
+
             <ThemeProvider theme={theme}>
                 <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
                     <CssBaseline />
