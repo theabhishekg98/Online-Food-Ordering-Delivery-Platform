@@ -92,7 +92,7 @@ router.get("/restaurant/:id", (req, resp) => {
           [restaurantId],
           function (err, deliveryResults, fields) {
             results[0].deliver = !!deliveryResults.length;
-            query = "SELECT * FROM PickupRestaurant where RestaurantId = ?";
+            query = "SELECT * FROM PickUpRestaurant where RestaurantId = ?";
             dbPool.query(
               query,
               [restaurantId],
@@ -114,7 +114,7 @@ router.get("/restaurant/mode/:id", (req, resp) => {
   query = "SELECT * FROM DeliveryRestaurant where RestaurantId = ?";
   dbPool.query(query, [restaurantId], function (err, deliveryResults, fields) {
     response.deliver = !!deliveryResults.length;
-    query = "SELECT * FROM PickupRestaurant where RestaurantId = ?";
+    query = "SELECT * FROM PickUpRestaurant where RestaurantId = ?";
     dbPool.query(query, [restaurantId], function (err, pickUpResults, fields) {
       response.pickup = !!pickUpResults.length;
       resp.status(200).send(response);
