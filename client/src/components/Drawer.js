@@ -119,7 +119,7 @@ export default function PersistentDrawerRight() {
           [classes.contentShift]: open,
         })}
       >
-      <div clasLorem ipsum dolor sit asName={classes.drawerHeader} />
+        <div className={classes.drawerHeader} />
       </main>
       <Drawer
         className={classes.drawer}

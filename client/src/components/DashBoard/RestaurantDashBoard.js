@@ -91,7 +91,7 @@ export default function RestaurantDashBoard() {
                 Welcome To UberEats!
               </Typography>
               <Typography variant="h5" align="center" color="text.secondary" paragraph>
-                Let's make some money!
+              Let's make some money!
               </Typography>
               <Stack
                 sx={{ pt: 4 }}

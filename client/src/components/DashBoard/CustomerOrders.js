@@ -98,7 +98,7 @@ export default function Review(props) {
       <Typography variant="h3" gutterBottom>
       Orders
     </Typography> 
-    <List disablePadding>
+    <List >
       {orders.map((order)=>{
         return(
           <>
@@ -115,7 +115,7 @@ export default function Review(props) {
           {order.items.map((item)=>{
             return(
             <ListItem>
-              {capitalize(item.DishName)} | ${item.Price}
+              {capitalize(item.DishName)} | ${item.Price} | qty: {item.Quantity}
             </ListItem>);
           })}
           
@@ -133,6 +133,10 @@ export default function Review(props) {
         <br />
         <Typography variant="h9" fontWeight="600">
          Current Order Status: {order.OrderStatus}
+          <br />
+        </Typography>
+        <Typography variant="h9" fontWeight="600">
+         Delivery Type : {order.DeliveryType}
           <br />
         </Typography>
         <Typography  fontWeight="600">

@@ -6,7 +6,6 @@ const Main = () => {
     <div>
       <PrimarySearchAppBar></PrimarySearchAppBar>
       <div>
-      {/* <SignInSide/> */}
       </div>
     </div>
   )
