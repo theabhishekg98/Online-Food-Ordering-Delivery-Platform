@@ -30,12 +30,12 @@ const locations = [
       value: "San Jose",
     },
     {
-      key: "MPS",
-      value: "Milpitas"
+      key: "SFO",
+      value: "San Francisco"
     },
     {
-      key: "SVA",
-      value: "SunnyVale"
+      key: "SCA",
+      value: "Santa Clara"
     },
     {
       key: "FRE",
