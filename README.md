@@ -4,7 +4,7 @@ STEPS TO RUN CLONE:
 
 Run the following command in Server and Client folder >> npm i
 
-Run command in server >> node index.js 
+Run command in server >> node index.js or npx nodemon
 
 Run command in client >> npm start
 
