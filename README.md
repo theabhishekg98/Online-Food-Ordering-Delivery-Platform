@@ -4,9 +4,9 @@ STEPS TO RUN CLONE:
 
 Run the following command in Server and Client folder >> npm i
 
-Run command in server >> node index.js or npx nodemon
-
-Run command in client >> npm start
+Run command in Backend server >> node index.js or npx nodemon
+Run command in Kafka server >> 
+Run command in Client >> npm start
 
 
 Backend:
@@ -18,7 +18,7 @@ React.js
 
 Database:
 
-AWS RDS MySQL 
+AWS MongoDB
 AWS S3
 
 Deployment:
