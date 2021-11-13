@@ -61,7 +61,7 @@ export default function RestaurantDashBoard() {
   const getImageUrl = (imageUrl) => {
     console.log("dish logo", { dishlogo });
     if (imageUrl != '')
-      return imageUrl;
+      return "https://ubereats-img.s3.us-east-2.amazonaws.com/media/dish.png";
     else
       return dishlogo;
   }

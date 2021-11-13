@@ -12,8 +12,9 @@ import CustomerProfile from './components/Profile/CustomerProfile';
 import CustomerRestaurantView from './components/DashBoard/CustomerRestaurantView';
 import CustomerPersonalization from './components/DashBoard/CustomerPersonalization';
 import CustomerCheckOut from './components/DashBoard/CustomerCheckOut';
-import  CustomerOrders from './components/DashBoard/CustomerOrders';
-import  RestaurantOrders from './components/DashBoard/RestaurantOrders';
+import CustomerOrders from './components/DashBoard/CustomerOrders';
+import RestaurantOrders from './components/DashBoard/RestaurantOrders';
+import uploadToS3 from './components/s3Upload/uploadToS3';
 
 function App() {
   console.info('started');
@@ -33,6 +34,7 @@ function App() {
       <Route exact path='/customer/restaurant' component={CustomerRestaurantView} />
       <Route exact path='/customer/favorite' component={CustomerPersonalization} />
       <Route exact path='/customer/checkout' component={CustomerCheckOut} />
+      <Route exact path='/s3Upload/uploadToS3' component={uploadToS3} />
     </div>
   );
 }

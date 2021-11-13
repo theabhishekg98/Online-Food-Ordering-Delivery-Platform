@@ -22,7 +22,7 @@ import { store } from '../../state/store/store';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
-
+import S3 from 'react-aws-s3';
 
 const theme = createTheme();
 
@@ -36,19 +36,39 @@ export default function AddDish() {
     const [type, setType] = useState('');
     const [disabled, setDisbled] = useState(true);
 
-
     const history = useHistory();
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log(event.currentTarget);
         const data = new FormData(event.currentTarget);
         let url;
+        const config = {
+            bucketName: 'ubereats-img',
+            dirName: 'media', /* optional */
+            region: 'us-east-2',
+            accessKeyId: 'AKIAUHYZFVUEYPQBM6NJ',
+            secretAccessKey: 'wLiv9Al3V5NpecCycseu4nTVg4IlVzfLxv50JTFh'
+            // s3Url: 'https:/your-custom-s3-url.com/', /* optional */
+        }
         if (image) {
             let imageData = new FormData()
             imageData.append('image', image)
-            let response = await axios.post(`${backendServer}/image/dish`, imageData);
-            url = response.data.imageUrl;
-            setImageUrl(url);
+            uploadToS3(imageData, "dish");
+            // let response = await axios.post(`${backendServer}/image/dish`, imageData);
+            // url = response.data.imageUrl;
+            // setImageUrl(url);
+        }
+
+        function uploadToS3(imageData, fileName) {
+            const ReactS3Client = new S3(config);
+            /*  Notice that if you don't provide a dirName, the file will be automatically uploaded to the root of your bucket */
+            /* This is optional */
+            ReactS3Client
+                .uploadFile(imageData, fileName)
+                .then(data => console.log(data))
+                .catch(err => console.error(err))
+
+            history.push("/restaurant/dashBoard")    
         }
 
         const restaurantId = sessionStorage.getItem('userId');
