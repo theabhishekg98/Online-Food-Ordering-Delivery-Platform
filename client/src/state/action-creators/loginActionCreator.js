@@ -1,7 +1,7 @@
 import * as actions from '../actions/actionsTypes'
 
 const setUser = (user)=>{
-       console.log("inside set user",user);
+       console.log("inside the set user",user);
        return {
             type: actions.LOGIN,
             payload: user

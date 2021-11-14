@@ -37,7 +37,7 @@ KafkaRPC.prototype.makeRequest = function (topic_name, content, callback) {
   self.requests[correlationId] = entry;
 
   self.setupResponseQueue(self.producer, topic_name, function () {
-    console.log("in response");
+    console.log("I am in response");
     
     var payloads = [
       {
@@ -50,10 +50,10 @@ KafkaRPC.prototype.makeRequest = function (topic_name, content, callback) {
         partition: 0
       }
     ];
-    console.log("in response1");
+    console.log("I am in response 1");
     console.log(self.producer.ready);
     self.producer.send(payloads, function (err, data) {
-      console.log("in response2");
+      console.log("I am in response 2");
       if (err) console.log(err);
       console.log(data);
     });
@@ -70,7 +70,7 @@ KafkaRPC.prototype.setupResponseQueue = function (producer, topic_name, next) {
 
   var consumer = self.connection.getConsumer("response_topic");
   consumer.on("message", function (message) {
-    console.log("msg received");
+    console.log("message received");
     var data = JSON.parse(message.value);
     var correlationId = data.correlationId;
     if (correlationId in self.requests) {
