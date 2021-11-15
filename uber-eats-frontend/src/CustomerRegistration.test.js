@@ -9,7 +9,7 @@ import '@testing-library/jest-dom/extend-expect';
 import CustomerRegistration from '../components/SignUp/CustomerRegistration';
 
 const server = setupServer(
-  rest.post('http://18.225.37.132:3001/uber-eats/api/customer/register', (req, res, ctx) => res(ctx.json([{ EmailId: 'theabhishekg98@gmail.com' }]))),
+  rest.post('http://18.225.37.132:3001/uber-eats/api/customer/register', (req, res, ctx) => res(ctx.json([{ EmailId: 'abhishek@gmail.com' }]))),
 );
 
 beforeAll(() => server.listen());
@@ -23,13 +23,13 @@ describe('Restaurant Login Tests', () => {
     const password = screen.getByTestId('password').querySelector('input');
     const name = screen.getByTestId('name').querySelector('input');
 
-    fireEvent.change(email, { target: { value: 'theabhishekg98@gmail.com' } });
+    fireEvent.change(email, { target: { value: 'abhishek@gmail.com' } });
     fireEvent.change(password, { target: { value: 'password' } });
-    fireEvent.change(name, { target: { value: 'theabhishekg98' } });
+    fireEvent.change(name, { target: { value: 'abhishek' } });
 
-    expect(email.value).toBe('theabhishekg98@gmail.com');
+    expect(email.value).toBe('abhishek@gmail.com');
     expect(password.value).toBe('password');
-    expect(name.value).toBe('theabhishekg98');
+    expect(name.value).toBe('abhishek');
   });
 
   it('Should render Login component', () => {

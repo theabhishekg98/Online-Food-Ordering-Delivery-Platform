@@ -9,7 +9,7 @@ import '@testing-library/jest-dom/extend-expect';
 import RestaurantLogin from '../components/SignUp/RestaurantLogin';
 
 const server = setupServer(
-  rest.post('http://18.225.37.132:3001/uber-eats/api/restaurant/login', (req, res, ctx) => res(ctx.json([{ EmailId: 'theabhishekg98@gmail.com' }]))),
+  rest.post('http://18.225.37.132:3001/uber-eats/api/restaurant/login', (req, res, ctx) => res(ctx.json([{ EmailId: 'abhishek@gmail.com' }]))),
 );
 
 beforeAll(() => server.listen());
@@ -21,10 +21,10 @@ describe('Restaurant Login Tests', () => {
     render(<RestaurantLogin />);
     const email = screen.getByTestId('email').querySelector('input');
     const password = screen.getByTestId('password').querySelector('input');
-    fireEvent.change(email, { target: { value: 'theabhishekg98@gmail.com' } });
+    fireEvent.change(email, { target: { value: 'abhishek@gmail.com' } });
     fireEvent.change(password, { target: { value: 'password' } });
 
-    expect(email.value).toBe('theabhishekg98@gmail.com');
+    expect(email.value).toBe('abhishek@gmail.com');
     expect(password.value).toBe('password');
   });
 
