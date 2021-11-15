@@ -6,11 +6,12 @@ const expect = require("chai").expect;
 const agent = require("chai").request.agent(index);
 
 describe("UberEats", function () {
+
   describe("Customer Login Tests", function () {
     it("should return 'invalid credentails' when the username password combination is wrong", () => {
       agent
         .post("/uber-eats/api/customer/login")
-        .send({ email: "abhishek.ganesan@sjsu.edu", password: "password" })
+        .send({ email: "rahil.shah2107@gmail.com", password: "password" })
         .then(function (res) {
           expect(res.body.message).to.equal("Invalid credentials");
         })
@@ -22,7 +23,7 @@ describe("UberEats", function () {
     it("should return 'user not found' when the user is not present", () => {
       agent
         .post("/uber-eats/api/customer/login")
-        .send({ email: "gotothisemail@gmail.com", password: "password" })
+        .send({ email: "random@gmail.com", password: "password" })
         .then(function (res) {
           expect(res.body.message).to.equal("User not found");
         })
@@ -34,9 +35,9 @@ describe("UberEats", function () {
     it("should return user details when the username and password are correct", () => {
       agent
         .post("/uber-eats/api/customer/login")
-        .send({ email: "theabhishekg98@gmail.com", password: "abhi" })
+        .send({ email: "rahil.shah2107@gmail.com", password: "rahil.shah2107" })
         .then(function (res) {
-          expect(res.body.EmailId).to.equal('theabhishekg98@gmail.com');
+          expect(res.body.EmailId).to.equal('rahil.shah2107@gmail.com');
         })
         .catch((error) => {
           assert.fail("An error occured. Please check the logs")
@@ -48,7 +49,7 @@ describe("UberEats", function () {
     it("should return 'invalid credentails' when the username password combination is wrong", () => {
       agent
         .post("/uber-eats/api/customer/login")
-        .send({ email: "colbycovington@gmail.com", password: "password" })
+        .send({ email: "biergarten@gmail.com", password: "password" })
         .then(function (res) {
           expect(res.body.message).to.equal("Invalid credentials");
         })
@@ -60,7 +61,7 @@ describe("UberEats", function () {
     it("should return 'user not found' when the user is not present", () => {
       agent
         .post("/uber-eats/api/customer/login")
-        .send({ email: "gotothisemail@gmail.com", password: "password" })
+        .send({ email: "random@gmail.com", password: "password" })
         .then(function (res) {
           expect(res.body.message).to.equal("User not found");
         })
@@ -72,9 +73,9 @@ describe("UberEats", function () {
     it("should return user details when the username and password are correct", () => {
       agent
         .post("/uber-eats/api/customer/login")
-        .send({ email: "colbycovington@gmail.com", password: "colbycovington" })
+        .send({ email: "biergarten@gmail.com", password: "biergarten" })
         .then(function (res) {
-          expect(res.body.EmailId).to.equal('colbycovington@gmail.com');
+          expect(res.body.EmailId).to.equal('biergarten@gmail.com');
         })
         .catch((error) => {
           assert.fail("An error occured. Please check the logs")

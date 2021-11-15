@@ -1,7 +1,7 @@
 const router = require("express").Router();
 var kafka = require('../kafka/client');
 const jwt = require("jsonwebtoken");
-const secret = "LAB2UBEREATS";
+const secret = "CMPE273UBEREATS";
 
 
 router.post("/customer/login",  async (req, res) => {

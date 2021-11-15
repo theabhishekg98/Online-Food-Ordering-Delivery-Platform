@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { checkAuth } = require("../utils/passport");
 var kafka = require('../kafka/client');
 
+
+
 router.post("/personalize/customer", checkAuth, async (req, res) => {
 
     const request = {

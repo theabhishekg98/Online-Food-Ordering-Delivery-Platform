@@ -10,7 +10,7 @@ router.post("/orders/customer/:id", checkAuth, async  (req, res) => {
     console.log("this is my request: ");
     console.log(request);
 
-    kafka.make_request('ubereats.create.customerOder',request, function(error,results){
+    kafka.make_request('ubereats.create.customerOrder',request, function(error,results){
         if (error){
             res.status(400).send(error)
         }else{
@@ -25,7 +25,7 @@ router.get("/orders/customer/:id", checkAuth, async (req, res) => {
         query: req.query, params: req.params, body: req.body,
     }
     
-    kafka.make_request('ubereats.get.customerOders',request, function(error,results){
+    kafka.make_request('ubereats.get.customerOrders',request, function(error,results){
         if (error){
             res.status(400).send(error)
         }else{

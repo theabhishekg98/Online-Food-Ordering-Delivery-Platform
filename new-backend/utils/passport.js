@@ -2,7 +2,7 @@
 var JwtStrategy = require("passport-jwt").Strategy;
 var ExtractJwt = require("passport-jwt").ExtractJwt;
 const passport = require("passport");
-const secret = "LAB2UBEREATS";
+const secret = "CMPE273UBEREATS";
 const Customers = require('../model/Customers');
 const Restaurants = require('../model/Restaurants');
 

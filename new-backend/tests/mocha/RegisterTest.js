@@ -10,9 +10,9 @@ describe("Customer Sign Up", function () {
       agent
         .post("/uber-eats/api/customer/register")
         .send({
-          email: "theabhishekg98@gmail.com",
-          password: "theabhishekg98",
-          name: "theabhishekg98",
+          email: "rahil.shah2107@gmail.com",
+          password: "rahil.shah2107",
+          name: "rahil.shah2107",
         })
         .then(function (res) {
           expect(res.body.message).to.equal("Email Id is already registered");
@@ -46,9 +46,9 @@ describe("Restaurant Sign Up", function () {
       agent
         .post("/uber-eats/api/restaurant/register")
         .send({
-          email: "theabhishekg98@gmail.com",
-          password: "theabhishekg98",
-          name: "theabhishekg98",
+          email: "rahil.shah2107@gmail.com",
+          password: "rahil.shah2107",
+          name: "rahil.shah2107",
         })
         .then(function (res) {
           expect(res.body.message).to.equal("Email Id is already registered");

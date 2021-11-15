@@ -35,16 +35,16 @@ app.use("/uber-eats/api", orders);
 
 app.use(
   session({
-    secret: "uber_eats",
-    resave: false, 
-    saveUninitialized: false,
-    duration: 60 * 60 * 1000, 
+    secret: "cmpe273_uber_eats",
+    resave: false, // Forces the session to be saved back to the session store, even if the session was never modified during the request
+    saveUninitialized: false, // Force to save uninitialized session to db. A session is uninitialized when it is new but not modified.
+    duration: 60 * 60 * 1000, // Overall duration of Session : 30 minutes : 1800 seconds
     activeDuration: 5 * 60 * 1000,
   })
 );
 
 app.get("/", function (req, resp) {
-  resp.send("Hitting UberEats server endpoints");
+  resp.send("Uber Eats Server Endpoints");
 });
 
 const mongoose = require("mongoose");
@@ -59,14 +59,14 @@ var options = {
 mongoose.connect(mongoDB, options, (err, res) => {
   if (err) {
     console.log(err);
-    console.log(`MongoDB Connection Failed!`);
+    console.log(`MongoDB Connection Failed`);
   } else {
-    console.log(`MongoDB Connected Successfully!`);
+    console.log(`MongoDB Connected`);
   }
 });
 
 app.listen(3001, function () {
-  console.log("Server is listening on port 3001");
+  console.log("Server listening on port 3001");
 });
 
 module.exports = app;

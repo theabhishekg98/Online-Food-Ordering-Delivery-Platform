@@ -19,7 +19,7 @@ const isImage = (req, file, callbck) => {
   if (file.mimetype.startsWith("image")) {
     callbck(null, true);
   } else {
-    callbck(new Error("Only Images are allowed"));
+    callbck(new Error("Only Image is allowed"));
   }
 };
 
