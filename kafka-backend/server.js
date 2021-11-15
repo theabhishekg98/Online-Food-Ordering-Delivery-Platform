@@ -120,7 +120,7 @@ handleTopicRequest("ubereats.update.OrderStatus",updateOrderStatus);
 
 //delivery address
 handleTopicRequest("ubereats.create.deliveryAddress",createDeliveryAddress);
-handleTopicRequest("ubereats.get.deliveryAddress",getDeliveryAddress);
+handleTopicRequest("ubereats.get.deliveryaddress",getDeliveryAddress);
 
 
 
