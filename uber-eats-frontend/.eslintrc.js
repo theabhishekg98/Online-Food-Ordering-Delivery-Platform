@@ -20,6 +20,7 @@ module.exports = {
   ignorePatterns: ['dist/', 'node_modules/'],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-indent': 0,
     'no-console': 'off',
     'no-debugger': 'off',
     'import/prefer-default-export': 'off',
