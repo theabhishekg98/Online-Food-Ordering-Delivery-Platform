@@ -1,5 +1,5 @@
 const awsAccessKey = "AKIAUHYZFVUESXJA4Z7A";
-const awsSecretKey = "eqzeThd53dtE0+no7yMh3Im8OzDTqduCCqJDP";
+const awsSecretKey = "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";
 
 const config = {
   mongoDB:
