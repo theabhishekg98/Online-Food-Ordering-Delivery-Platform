@@ -113,14 +113,14 @@ handleTopicRequest("ubereats.get.restaurantDishes",getRestaurantDishes);
 //orders
 handleTopicRequest("ubereats.create.customerOrder",createCustomerOrder);
 handleTopicRequest("ubereats.get.customerOrders",getCustomerOrders);
-handleTopicRequest("ubereats.get.order",getOrder);
-handleTopicRequest("ubereats.get.Orderitems",getOrderItems);
+handleTopicRequest("ubereats.get.Order",getOrder);
+handleTopicRequest("ubereats.get.OrderItems",getOrderItems);
 handleTopicRequest("ubereats.get.restaurantOrders",getRestaurantOrders);
 handleTopicRequest("ubereats.update.OrderStatus",updateOrderStatus);
 
 //delivery address
 handleTopicRequest("ubereats.create.deliveryAddress",createDeliveryAddress);
-handleTopicRequest("ubereats.get.deliveryaddress",getDeliveryAddress);
+handleTopicRequest("ubereats.get.deliveryAddress",getDeliveryAddress);
 
 
 
