@@ -27,7 +27,10 @@ Run command in Backend server >> node index.js
 Run command in Kafka backend >> node server.js
 Run command in Client >> npm start
 
+Step 5:
 
+Launch the application - Open the browser and navigate to Front-end server's IP address with Port number (Eg: 127.0.0.1:3000) to find the landing page.
+ 
 Technology stack: 
   
 1. Backend:
