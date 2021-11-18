@@ -2,24 +2,45 @@
 
 STEPS TO RUN CLONE: 
 
-Run the following command in Server and Client folder >> npm i
+Run the following command in backend and frontend folders >> npm i
 
-Run command in Backend server >> node index.js or npx nodemon
-Run command in Kafka server >> 
+Step 1:
+
+Install Kafka variant - 
+$ tar -xzf kafka_2.13-3.0.0.tgz
+$ cd kafka_2.13-3.0.0
+
+Step 2: 
+
+Start Kafka environment - 
+$ bin/zookeeper-server-start.sh config/zookeeper.properties
+$ bin/kafka-server-start.sh config/server.properties
+
+Step 3: 
+
+Create topics to store the events - 
+$ bin/kafka-topics.sh --create --topic <topic-name> --bootstrap-server localhost:9092
+ 
+Step 4:
+  
+Run command in Backend server >> node index.js
+Run command in Kafka backend >> node server.js
 Run command in Client >> npm start
 
 
-Backend:
-Node.js
-Express.js
+Technology stack: 
+  
+1. Backend:
+    Kafka
+    Node.js
+    Express.js
 
-Frontend:
-React.js
+2. Frontend:
+    React.js
 
-Database:
+3. Database:
+    Atlas MongoDB
+    AWS S3
 
-AWS MongoDB
-AWS S3
-
-Deployment:
-AWS EC2
+4. Deployment:
+    AWS EC2
