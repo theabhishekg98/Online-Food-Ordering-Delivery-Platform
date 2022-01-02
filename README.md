@@ -1,5 +1,12 @@
 # UberEats-Clone
 
+ABOUT: 
+
+An MVC full-stack application with dashboards for two personas - customers and restaurant owners, to view, search & place food orders and add or edit restaurant/dish data, respectively. Deployed on AWS EC2.
+
+Created an interface for orders’ status and viewing user profiles. The REST services are developed using Node.js, Express.js, and React.js with a strong focus on distributed messaging using Apache Kafka. 
+
+
 STEPS TO RUN CLONE: 
 
 Run the following command in backend and frontend folders >> npm i
